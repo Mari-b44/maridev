@@ -865,6 +865,26 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
         <div class="proj-arr">↗</div>
       </div>
 
+      <div class="proj-row rv" style="transition-delay:.49s" onclick="window.open('https://repissa.vercel.app/','_blank')">
+        <div class="proj-n">08</div>
+        <div>
+          <div class="proj-title">Repissa</div>
+          <div class="proj-desc">Proyecto web desplegado en Vercel, con enfoque en experiencia de usuario y rendimiento.</div>
+          <div class="proj-tags"><span class="proj-tag">HTML5</span><span class="proj-tag">CSS3</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Vercel</span></div>
+        </div>
+        <div class="proj-arr">↗</div>
+      </div>
+
+      <div class="proj-row rv" style="transition-delay:.56s" onclick="window.open('https://rainbow-licorice-791905.netlify.app/','_blank')">
+        <div class="proj-n">09</div>
+        <div>
+          <div class="proj-title">Rainbow Licorice</div>
+          <div class="proj-desc">Proyecto web desplegado en Netlify, con interfaz clara y tiempos de carga optimizados.</div>
+          <div class="proj-tags"><span class="proj-tag">HTML5</span><span class="proj-tag">CSS3</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Netlify</span></div>
+        </div>
+        <div class="proj-arr">↗</div>
+      </div>
+
     </div>
   </section>
 
@@ -1169,7 +1189,7 @@ function normalizeModalImages(root){
   }
   root.querySelectorAll('img').forEach(img => {
     const apply = () => {
-      if(img.naturalWidth && img.naturalHeight && img.naturalHeight > img.naturalWidth){
+      if(img.naturalWidth && img.naturalHeight && img.naturalWidth > img.naturalHeight){
         img.classList.add('rot90');
         fitRotatedImage(img);
       }else{
