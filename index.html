@@ -599,8 +599,23 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
 .modal-ph{
   width:100%;aspect-ratio:16/9;background:var(--surface3);
   border:1px solid rgba(152,69,255,.07);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  display:flex !important;flex-direction:column;align-items:center;justify-content:center;
   gap:.5rem;margin-bottom:1.4rem;
+  max-height:60vh;
+  overflow:hidden;
+}
+.modal-ph img{
+  display:block;
+  max-width:100%;
+  max-height:60vh;
+  height:auto;
+  border-radius:2px;
+}
+.modal-ph img.rot90{
+  transform:rotate(90deg);
+  transform-origin:center;
+  max-width:60vh;
+  max-height:100%;
 }
 .modal-ph span{ font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:var(--dim); }
 .modal-title{ font-family:var(--fd);font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:.25rem; }
@@ -1102,7 +1117,26 @@ const ro = new IntersectionObserver(entries => {
 document.querySelectorAll('.rv,.sk-row,.proj-row,.aw-card').forEach(el => ro.observe(el));
 
 // Modals
-function openModal(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function normalizeModalImages(root){
+  if(!root) return;
+  root.querySelectorAll('img').forEach(img => {
+    const apply = () => {
+      if(img.naturalWidth && img.naturalHeight && img.naturalHeight > img.naturalWidth){
+        img.classList.add('rot90');
+      }else{
+        img.classList.remove('rot90');
+      }
+    };
+    if(img.complete) apply();
+    else img.addEventListener('load', apply, { once:true });
+  });
+}
+function openModal(id){
+  const el = document.getElementById(id);
+  el.classList.add('open');
+  document.body.style.overflow='hidden';
+  normalizeModalImages(el);
+}
 function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
 document.querySelectorAll('.aw-card[data-modal]').forEach(c => c.addEventListener('click', () => openModal(c.dataset.modal)));
 document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) closeModal(o.id); }));
