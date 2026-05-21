@@ -613,13 +613,6 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
   object-fit:contain;
   border-radius:2px;
 }
-.modal-ph img.rot90{
-  transform:rotate(90deg);
-  transform-origin:center;
-  width:min(100%,72vh) !important;
-  max-width:100%;
-  max-height:72vh;
-}
 .modal-ph span{ font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:var(--dim); }
 .modal-title{ font-family:var(--fd);font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:.25rem; }
 .modal-org{ font-family:var(--fm);font-size:.6rem;letter-spacing:.08em;color:var(--purple-l);opacity:.7;margin-bottom:.8rem; }
@@ -1120,14 +1113,31 @@ const ro = new IntersectionObserver(entries => {
 document.querySelectorAll('.rv,.sk-row,.proj-row,.aw-card').forEach(el => ro.observe(el));
 
 // Modals
+function fitRotatedImage(img){
+  const frame = img.closest('.modal-ph');
+  if(!frame) return;
+  const rect = frame.getBoundingClientRect();
+  const maxW = rect.width;
+  const maxH = rect.height;
+  const w = img.naturalWidth || 1;
+  const h = img.naturalHeight || 1;
+
+  // After 90deg rotation, displayed bounding box is (h*scale) x (w*scale)
+  const scale = Math.min(maxW / h, maxH / w, 1);
+  img.style.transformOrigin = 'center';
+  img.style.transform = `rotate(90deg) scale(${scale})`;
+}
+
 function normalizeModalImages(root){
   if(!root) return;
   root.querySelectorAll('img').forEach(img => {
     const apply = () => {
       if(img.naturalWidth && img.naturalHeight && img.naturalHeight > img.naturalWidth){
         img.classList.add('rot90');
+        fitRotatedImage(img);
       }else{
         img.classList.remove('rot90');
+        img.style.transform = '';
       }
     };
     if(img.complete) apply();
@@ -1141,6 +1151,9 @@ function openModal(id){
   normalizeModalImages(el);
 }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.modal-overlay.open').forEach(o => normalizeModalImages(o));
+});
 document.querySelectorAll('.aw-card[data-modal]').forEach(c => c.addEventListener('click', () => openModal(c.dataset.modal)));
 document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) closeModal(o.id); }));
 document.addEventListener('keydown', e => { if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id)); });
