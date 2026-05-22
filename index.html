@@ -1166,21 +1166,6 @@ const ro = new IntersectionObserver(entries => {
 document.querySelectorAll('.rv,.sk-row,.proj-row,.aw-card').forEach(el => ro.observe(el));
 
 // Modals
-function fitRotatedImage(img){
-  const frame = img.closest('.modal-ph');
-  if(!frame) return;
-  const rect = frame.getBoundingClientRect();
-  const maxW = rect.width;
-  const maxH = rect.height;
-  const w = img.naturalWidth || 1;
-  const h = img.naturalHeight || 1;
-
-  // After 90deg rotation, displayed bounding box is (h*scale) x (w*scale)
-  const scale = Math.min(maxW / h, maxH / w, 1);
-  img.style.transformOrigin = 'center';
-  img.style.transform = `rotate(90deg) scale(${scale})`;
-}
-
 function normalizeModalImages(root){
   if(!root) return;
   const ph = root.querySelector('.modal-ph');
@@ -1189,19 +1174,6 @@ function normalizeModalImages(root){
     if(imgCount > 1) ph.classList.add('multi');
     else ph.classList.remove('multi');
   }
-  root.querySelectorAll('img').forEach(img => {
-    const apply = () => {
-      if(img.naturalWidth && img.naturalHeight && img.naturalWidth > img.naturalHeight){
-        img.classList.add('rot90');
-        fitRotatedImage(img);
-      }else{
-        img.classList.remove('rot90');
-        img.style.transform = '';
-      }
-    };
-    if(img.complete) apply();
-    else img.addEventListener('load', apply, { once:true });
-  });
 }
 function openModal(id){
   const el = document.getElementById(id);
