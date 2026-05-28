@@ -178,6 +178,11 @@ main{
   z-index:1;
 }
 
+section{
+  padding:6.5rem 5rem 6.5rem 5.5rem;
+  position:relative;
+}
+
 /* alternating backgrounds */
 .s-dark{  background:var(--bg); }
 .s-surf{  background:var(--surface); }
@@ -196,7 +201,7 @@ main{
   font-weight:300;
   letter-spacing:-.01em;
   line-height:1.08;
-  margin-bottom:2.8rem;
+  margin-bottom:3.4rem;
 }
 .sec-title em{ font-style:italic; }
 
@@ -239,8 +244,8 @@ main{
   font-weight:300;
   line-height:1.0;
   letter-spacing:-.02em;
-  margin-bottom:1.5rem;
-  max-width:840px;
+  margin-bottom:1.8rem;
+  max-width:900px;
 }
 .hero-title .accent-line{
   display:block;font-style:italic;
@@ -249,7 +254,7 @@ main{
 }
 
 .hero-desc{
-  font-size:.93rem;color:var(--muted);max-width:400px;
+  font-size:.93rem;color:var(--muted);max-width:460px;
   line-height:1.85;margin-bottom:2.5rem;font-weight:300;
 }
 .hero-cta{ display:flex;gap:.9rem;align-items:center; }
@@ -300,7 +305,7 @@ main{
    SKILLS
 ────────────────────────────── */
 .skills-grid{
-  display:grid;grid-template-columns:1fr 1.5fr;gap:4.5rem;align-items:start;
+  display:grid;grid-template-columns:1fr 1.45fr;gap:6rem;align-items:start;
 }
 .skills-intro p{
   font-size:.87rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;
@@ -320,7 +325,7 @@ main{
 .sk-row{
   display:grid;grid-template-columns:1fr 44px 160px;
   align-items:center;gap:1.4rem;
-  padding:1rem 0;
+  padding:1.2rem 0;
   border-bottom:1px solid rgba(152,69,255,.08);
   opacity:0;transform:translateX(18px);
   transition:opacity .5s var(--ease),transform .5s var(--ease);
@@ -350,7 +355,7 @@ main{
 .proj-row{
   display:grid;grid-template-columns:52px 1fr 28px;
   align-items:start;gap:2rem;
-  padding:1.9rem 0;
+  padding:2.25rem 0;
   border-bottom:1px solid rgba(152,69,255,.08);
   cursor:pointer;
   transition:all .22s var(--ease);
@@ -388,10 +393,10 @@ main{
    AWARDS
 ────────────────────────────── */
 .awards-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;
 }
 .aw-card{
-  padding:1.6rem;
+  padding:2rem;
   background:var(--surface3);
   border:1px solid rgba(152,69,255,.09);
   position:relative;overflow:hidden;
@@ -451,7 +456,7 @@ main{
 /* ──────────────────────────────
    ABOUT
 ────────────────────────────── */
-.about-grid{ display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;align-items:center; }
+.about-grid{ display:grid;grid-template-columns:1fr 1.15fr;gap:6rem;align-items:center; }
 
 .about-visual{ position:relative; }
 .about-frame{
@@ -503,7 +508,7 @@ main{
 
 .about-text p{ font-size:.88rem;color:var(--muted);line-height:1.9;margin-bottom:1rem; }
 .stats-row{
-  display:flex;gap:2.5rem;margin-top:2rem;padding-top:2rem;
+  display:flex;gap:3rem;margin-top:2.4rem;padding-top:2.4rem;
   border-top:1px solid rgba(152,69,255,.08);
 }
 .stat-val{
@@ -519,7 +524,7 @@ main{
 /* ──────────────────────────────
    CONTACT
 ────────────────────────────── */
-.contact-grid{ display:grid;grid-template-columns:1.3fr 1fr;gap:5rem;align-items:center; }
+.contact-grid{ display:grid;grid-template-columns:1.25fr 1fr;gap:6rem;align-items:center; }
 .contact-email{
   font-family:var(--fd);
   font-size:clamp(1.7rem,3.2vw,2.9rem);
@@ -527,7 +532,7 @@ main{
   text-decoration:none;display:block;
   background:var(--g-pink-purple);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:1.8rem;
+  margin-bottom:2.2rem;
   padding-bottom:1.5rem;
   border-bottom:1px solid rgba(152,69,255,.12);
   line-height:1.2;
@@ -552,19 +557,6 @@ main{
 /* ──────────────────────────────
    FOOTER
 ────────────────────────────── */
-footer{
-  background:var(--surface);
-  padding:1.4rem 5rem 1.4rem 5.5rem;
-  display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid rgba(152,69,255,.07);
-  position:relative;z-index:1;
-}
-footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(--dim); }
-.flogo{
-  font-family:var(--fd);font-size:.95rem;font-weight:300;
-  background:var(--g-pink-purple);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-
 /* ──────────────────────────────
    MODALS
 ────────────────────────────── */
@@ -663,25 +655,24 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
   .panel{transform:translateX(-100%);transition:transform .35s var(--ease);}
   .panel.open{transform:translateX(0);}
   main{margin-left:0;}
-  footer{margin-left:0;padding:1.4rem 1.8rem;}
   .ham{display:flex;}
-  section{padding:5rem 1.8rem;}
+  section{padding:4.8rem 1.8rem;}
   .hero{padding:5rem 1.8rem;}
   .hero-chips{display:none;}
   .hero-scroll-hint{left:1.8rem;}
-  .skills-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .skills-grid{grid-template-columns:1fr;gap:3rem;}
   .sk-row{grid-template-columns:1fr 44px 100px;}
-  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-grid{grid-template-columns:1fr;gap:2.75rem;}
   .about-frame{max-height:200px;aspect-ratio:unset;}
   .about-photo{min-height:200px;}
-  .contact-grid{grid-template-columns:1fr;}
-  .awards-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .awards-grid{grid-template-columns:1fr 1fr;gap:1rem;}
 }
 @media(max-width:580px){
   .sec-title{font-size:2.1rem;}
   .hero-title{font-size:3rem;}
   .awards-grid{grid-template-columns:1fr;}
-  .proj-row{grid-template-columns:36px 1fr 20px;gap:1rem;}
+  .proj-row{grid-template-columns:36px 1fr 20px;gap:1rem;padding:1.8rem 0;}
 }
 </style>
 </head>
@@ -708,7 +699,6 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
   </div>
   <div class="p-bottom">
     <div class="p-avail"><span class="p-avail-dot"></span>Disponible para proyectos</div>
-    <div class="p-copy">© 2026 Maricruz</div>
   </div>
 </nav>
 
@@ -1025,12 +1015,6 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
   </section>
 
 </main>
-
-<footer>
-  <p>© 2026 Maricruz — Hecha con pasión y mucho café ☕</p>
-  <div class="flogo">maricruz.dev</div>
-</footer>
-
 <!-- MODALS -->
 <div class="modal-overlay" id="m1"><div class="modal-box" style="--m-grad:var(--g-yellow-pink)">
   <button class="modal-close" onclick="closeModal('m1')">✕</button>
