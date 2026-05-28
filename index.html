@@ -167,28 +167,15 @@ body::before{
 }
 @keyframes adot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.6);}}
 
-.p-socials{ display:flex;gap:.4rem; }
-.p-soc{
-  width:30px;height:30px;
-  border:1px solid rgba(152,69,255,.14);
-  border-radius:var(--r);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);
-  text-decoration:none;
-  transition:all .2s;
-}
-.p-soc:hover{ border-color:var(--pink);color:var(--pink);background:rgba(255,63,164,.07); }
-    <div class="p-copy">? 2026 Maricruz</div>
-
 /* ──────────────────────────────
    MAIN
 ────────────────────────────── */
-main{ margin-left:var(--nav-w); position:relative;z-index:1; }
-
-section{
-  padding:6rem 5rem 6rem 5.5rem;
+main{
+  margin-left:var(--nav-w);
+  width:calc(100% - var(--nav-w));
+  min-width:0;
   position:relative;
-  overflow:hidden;
+  z-index:1;
 }
 
 /* alternating backgrounds */
