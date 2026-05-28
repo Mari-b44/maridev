@@ -474,11 +474,20 @@ section{
   display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
 }
+.about-photo{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  position:relative;
+  z-index:0;
+}
 .about-frame::after{
   content:'';position:absolute;inset:0;
   background:
     radial-gradient(ellipse at 25% 30%,rgba(255,63,164,.1),transparent 55%),
     radial-gradient(ellipse at 75% 70%,rgba(152,69,255,.1),transparent 50%);
+  z-index:1;
   pointer-events:none;
 }
 .about-letter{
@@ -489,6 +498,7 @@ section{
 .about-corner{
   position:absolute;font-family:var(--fm);font-size:.54rem;
   letter-spacing:.12em;text-transform:uppercase;color:var(--muted);opacity:.3;
+  z-index:2;
 }
 .about-corner.tl{top:1rem;left:1rem;}
 .about-corner.br{bottom:1rem;right:1rem;}
@@ -676,7 +686,7 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
   .sk-row{grid-template-columns:1fr 44px 100px;}
   .about-grid{grid-template-columns:1fr;gap:2rem;}
   .about-frame{max-height:200px;aspect-ratio:unset;}
-  .about-letter{font-size:4rem;}
+  .about-photo{min-height:200px;}
   .contact-grid{grid-template-columns:1fr;}
   .awards-grid{grid-template-columns:1fr 1fr;}
 }
@@ -987,9 +997,9 @@ footer p{ font-family:var(--fm);font-size:.57rem;letter-spacing:.1em;color:var(-
     <div class="about-grid">
       <div class="about-visual rv">
         <div class="about-frame">
+          <img src="mary.jpeg" alt="Maricruz" class="about-photo">
           <span class="about-corner tl">Maricruz</span>
           <span class="about-corner br">Frontend Dev</span>
-          <div class="about-letter">M</div>
         </div>
         <div class="about-badge">Disponible para proyectos</div>
       </div>
